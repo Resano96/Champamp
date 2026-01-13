@@ -419,14 +419,27 @@ ul {
     text-align: right;
 }
 
-/* Carousel Container */
+/* Carousel/Accordion Container */
 .journal-carousel {
     display: flex;
-    overflow-x: auto;
-    /* Enables horizontal scroll */
-    column-gap: 2.5rem;
+    flex-direction: column;
+    /* Mobile first: stack */
+    gap: 1rem;
     padding: 0 2rem;
     padding-bottom: 5rem;
+    width: 100%;
+    min-height: 80vh;
+    /* Give it substantial height */
+}
+
+@media (min-width: 768px) {
+    .journal-carousel {
+        flex-direction: row;
+        /* Desktop: horizontal */
+        padding: 0 5rem;
+        padding-bottom: 5rem;
+        gap: 1rem;
+    }
 }
 
 @media (min-width: 768px) {
@@ -436,32 +449,41 @@ ul {
     }
 }
 
-/* Individual Card (Snap Point) */
+/* Individual Card (Accordion Item) */
 .journal-card-item {
-    flex: none;
-    /* Don't shrink */
-    width: 40%;
-    /* Almost full width on mobile */
-    scroll-snap-align: center;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: 12px;
+    min-height: 100px;
+    /* Mobile minimum */
+    cursor: pointer;
+}
+
+.journal-card-item.is-expanded {
+    flex: 7;
+    /* Mobile: grow tall vertically */
+    cursor: default;
 }
 
 @media (min-width: 768px) {
     .journal-card-item {
-        width: 20%;
+        height: 600px;
+        /* Fixed height for desktop accordion */
+        min-height: auto;
     }
-}
 
-@media (min-width: 1024px) {
-    .journal-card-item {
-        width: 32%;
+    /* Desktop: grow less wide so others remain visible */
+    .journal-card-item.is-expanded {
+        flex: 2.5;
     }
 }
 
 .journal-card-inner {
     position: relative;
-    aspect-ratio: 4 / 5;
-    /* Vertical rectangle */
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .journal-card-img {
@@ -493,9 +515,112 @@ ul {
 
 .journal-card-content {
     position: absolute;
-    bottom: 2.5rem;
-    left: 2.5rem;
-    right: 2.5rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem;
+    z-index: 20;
+    transition: all 0.5s ease;
+}
+
+/* Move title up when expanded to make room for content */
+.journal-card-item.is-expanded .journal-card-content {
+    bottom: auto;
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);
+    height: 100%;
+    overflow-y: auto;
+    /* Scroll text if needed */
+}
+
+/* Specific inner content layout when expanded */
+.journal-card-item.is-expanded .journal-header-group {
+    margin-bottom: 2rem;
+}
+
+/* Hidden details initially */
+.journal-details {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.journal-card-item.is-expanded .journal-details {
+    opacity: 1;
+    max-height: 1000px;
+    /* Sufficient max-height */
+    transform: translateY(0);
+    transition-delay: 0.3s;
+    /* Wait for expansion */
+}
+
+/* Detail styling */
+.recipe-detail-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.recipe-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.recipe-lists-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+@media(min-width: 768px) {
+    .recipe-lists-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.recipe-list-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.recipe-list-items li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.25rem;
+    position: relative;
+    color: var(--color-white-90);
+    font-size: 0.95rem;
+}
+
+ul.recipe-list-items li::before {
+    content: "•";
+    color: var(--color-primary);
+    position: absolute;
+    left: 0;
+}
+
+ol.recipe-list-items {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    color: var(--color-primary);
+    /* Numbers color */
+}
+
+ol.recipe-list-items li {
+    padding-left: 0.5rem;
+}
+
+ol.recipe-list-items li::before {
+    content: none;
 }
 
 .journal-tag-badge {

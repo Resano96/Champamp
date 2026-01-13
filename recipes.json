@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "title": "Velouté de Champiñones",
+        "subtitle": "Selección Rústica",
+        "image": "./assets/Generated Image January 13, 2026 - 5_13PM.webp",
+        "difficulty": "Media",
+        "time": "45 min",
+        "ingredients": [
+            "500g champiñones variados",
+            "1 cebolla dulce",
+            "2 dientes de ajo",
+            "1 litro caldo de verduras",
+            "200ml nata fresca",
+            "Aceite de trufa (opcional)",
+            "Tomillo fresco"
+        ],
+        "instructions": [
+            "Limpiar delicadamente los champiñones sin mojarlos en exceso.",
+            "Sofreír la cebolla y el ajo en mantequilla hasta que estén transparentes.",
+            "Añadir los champiñones y cocinar hasta que suelten su agua.",
+            "Incorporar el caldo y dejar reducir a fuego lento durante 20 minutos.",
+            "Triturar hasta obtener una textura de seda y finalizar con la nata."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Tradición Al Ajillo",
+        "subtitle": "Tapas Clásicas",
+        "image": "./assets/Generated Image January 13, 2026 - 5_15PM.webp",
+        "difficulty": "Fácil",
+        "time": "15 min",
+        "ingredients": [
+            "400g champiñones blancos",
+            "5 dientes de ajo",
+            "Guindilla cayena",
+            "Perejil fresco",
+            "Aceite de oliva virgen extra",
+            "Vino blanco seco",
+            "Sal en escamas"
+        ],
+        "instructions": [
+            "Laminar los ajos y cortar la guindilla en aros.",
+            "Dorar los ajos en abundante aceite sin que se quemen.",
+            "Añadir los champiñones enteros o en cuartos y saltear a fuego vivo.",
+            "Desglasar con un chorrito de vino blanco y dejar evaporar el alcohol.",
+            "Espolvorear con perejil fresco recién picado antes de servir."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Risotto de Otoño",
+        "subtitle": "Especial del Chef",
+        "image": "./assets/Generated Image January 13, 2026 - 5_21PM.webp",
+        "difficulty": "Alta",
+        "time": "60 min",
+        "ingredients": [
+            "300g arroz Carnaroli",
+            "200g boletus edulis",
+            "1 chalota",
+            "100ml vino blanco",
+            "1 litro caldo de pollo o setas",
+            "50g queso Parmesano Reggiano",
+            "50g mantequilla fría"
+        ],
+        "instructions": [
+            "Sofreír la chalota picada finamente en mantequilla.",
+            "Nacarar el arroz durante un par de minutos hasta que esté translúcido.",
+            "Añadir el vino y dejar evaporar. Incorporar los boletus troceados.",
+            "Añadir el caldo caliente cazo a cazo, removiendo constantemente.",
+            "Mantecar vigorosamente con el queso y la mantequilla fría fuera del fuego."
+        ]
+    }
+]

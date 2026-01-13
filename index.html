@@ -4,7 +4,22 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description"
+        content="Champamp - Descubre la colección de otoño de champiñones gourmet. Recetas, productos frescos y tradición sostenible." />
+
+    <!-- Open Graph SEO -->
+    <meta property="og:title" content="Champamp - Revista Culinaria Inmersiva" />
+    <meta property="og:description"
+        content="Desenterrando los delicados tesoros del suelo español. Recetas, productos y tradición." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./assets/Generated Image January 13, 2026 - 4_20PM.webp" />
+    <meta property="og:url" content="https://www.champamp.com" />
+
     <title>Champamp - Revista Culinaria Inmersiva</title>
+
+    <!-- Font Optimization: Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Typography: Using Google Fonts for optimized delivery -->
     <link
@@ -16,7 +31,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -32,13 +47,14 @@
         <section class="section-hero" id="inicio">
             <!-- Background: Full-bleed image with a dark overlay text readability -->
             <img alt="Fresh mushrooms" class="hero-image-bg"
-                src="./assets/Generated Image January 13, 2026 - 4_20PM.png" />
+                src="./assets/Generated Image January 13, 2026 - 4_20PM.webp" width="1024" height="1024"
+                fetchpriority="high" />
             <div class="hero-image-bg hero-overlay-gradient"></div>
 
             <!-- Navigation: Absolute positioned on top of the hero -->
             <nav class="main-navigation">
                 <div class="nav-brand-container">
-                    <img alt="Champamp Logo" class="nav-logo-image" src="logo.svg" />
+                    <img alt="Champamp Logo" class="nav-logo-image" src="./assets/logo.svg" width="40" height="40" />
                 </div>
 
                 <!-- Desktop Menu: Hidden on mobile, Flex on desktop -->
@@ -48,11 +64,11 @@
                     <a class="nav-link-item" href="#producto">Producto</a>
                     <a class="nav-link-item" href="#historia">Historia</a>
                     <!-- Optional desktop menu icon if valid -->
-                    <button class="material-icon nav-link-item">menu</button>
+                    <button class="material-icon nav-link-item" aria-label="Menu">menu</button>
                 </div>
 
                 <!-- Mobile Trigger: Visible only on mobile screens -->
-                <button class="material-icon nav-toggle-mobile">menu</button>
+                <button class="material-icon nav-toggle-mobile" aria-label="Menu Mobile">menu</button>
             </nav>
 
             <!-- Hero Text Content -->
@@ -93,53 +109,8 @@
             <!-- Horizontal Scroll Container (Carousel) -->
             <div class="journal-carousel util-snap-x util-no-scrollbar">
 
-                <!-- Card 1 -->
-                <div class="journal-card-item">
-                    <div class="journal-card-inner">
-                        <img alt="Creamy mushrooms" class="journal-card-img"
-                            src="./assets/Generated Image January 13, 2026 - 5_13PM.png" />
-                        <div class="journal-card-overlay"></div>
-                        <div class="journal-card-content">
-                            <span class="journal-tag-badge">Selección Rústica</span>
-                            <h3 class="journal-card-title">Velouté de Champiñones</h3>
-                            <button class="journal-action-link">
-                                Leer Receta <span class="material-icon">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Las tarjetas se cargarán dinámicamente -->
 
-                <!-- Card 2 -->
-                <div class="journal-card-item">
-                    <div class="journal-card-inner">
-                        <img alt="Garlic mushrooms" class="journal-card-img"
-                            src="./assets/Generated Image January 13, 2026 - 5_15PM.png" />
-                        <div class="journal-card-overlay"></div>
-                        <div class="journal-card-content">
-                            <span class="journal-tag-badge">Tapas Clásicas</span>
-                            <h3 class="journal-card-title">Tradición Al Ajillo</h3>
-                            <button class="journal-action-link">
-                                Leer Receta <span class="material-icon">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="journal-card-item">
-                    <div class="journal-card-inner">
-                        <img alt="Mushroom risotto" class="journal-card-img"
-                            src="./assets/Generated Image January 13, 2026 - 5_21PM.png" />
-                        <div class="journal-card-overlay"></div>
-                        <div class="journal-card-content">
-                            <span class="journal-tag-badge">Especial del Chef</span>
-                            <h3 class="journal-card-title">Risotto de Otoño</h3>
-                            <button class="journal-action-link">
-                                Leer Receta <span class="material-icon">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </section>
@@ -158,7 +129,8 @@
                     <div class="product-visuals-col">
                         <div class="product-img-frame">
                             <img alt="White mushrooms close up" class="product-img"
-                                src="./assets/Generated Image January 13, 2026 - 5_31PM.png" />
+                                src="./assets/Generated Image January 13, 2026 - 5_31PM.webp" width="1024" height="1024"
+                                loading="lazy" />
                         </div>
                         <div class="product-glow-effect"></div>
                     </div>
@@ -209,7 +181,8 @@
                 <!-- Visuals -->
                 <div class="history-visual-col">
                     <img alt="Family in the fields" class="history-img-bg"
-                        src="./assets/Generated Image January 13, 2026 - 6_00PM.png" />
+                        src="./assets/Generated Image January 13, 2026 - 6_00PM.webp" width="1024" height="1024"
+                        loading="lazy" />
                     <!-- No overlay needed here if image has filters directly -->
                     <div class="util-absolute util-inset-cover" style="background-color: rgba(0,0,0,0.1)"></div>
                 </div>
