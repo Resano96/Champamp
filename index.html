@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Champamp - Revista Culinaria Inmersiva</title>
+
+    <!-- Typography: Using Google Fonts for optimized delivery -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;family=Poppins:wght@200;300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons: Material Symbols for consistent UI iconography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+
+        <!-- 
+            ==========================================================================
+            HERO SECTION (#inicio)
+            ==========================================================================
+            The landing area. Includes the full-screen background and the navigation bar.
+        -->
+        <section class="section-hero" id="inicio">
+            <!-- Background: Full-bleed image with a dark overlay text readability -->
+            <img alt="Fresh mushrooms" class="hero-image-bg" src="/Generated Image January 13, 2026 - 4_20PM.png" />
+            <div class="hero-image-bg hero-overlay-gradient"></div>
+
+            <!-- Navigation: Absolute positioned on top of the hero -->
+            <nav class="main-navigation">
+                <div class="nav-brand-container">
+                    <img alt="Champamp Logo" class="nav-logo-image" src="logo.svg" />
+                </div>
+
+                <!-- Desktop Menu: Hidden on mobile, Flex on desktop -->
+                <div class="nav-menu-desktop">
+                    <a class="nav-link-item" href="#inicio">Inicio</a>
+                    <a class="nav-link-item" href="#recetas">Recetas</a>
+                    <a class="nav-link-item" href="#producto">Producto</a>
+                    <a class="nav-link-item" href="#historia">Historia</a>
+                    <!-- Optional desktop menu icon if valid -->
+                    <button class="material-icon nav-link-item">menu</button>
+                </div>
+
+                <!-- Mobile Trigger: Visible only on mobile screens -->
+                <button class="material-icon nav-toggle-mobile">menu</button>
+            </nav>
+
+            <!-- Hero Text Content -->
+            <div class="hero-content">
+                <span class="hero-text-overline">La Colección de Otoño</span>
+                <h1 class="hero-text-heading">Champamp</h1>
+
+                <div class="hero-actions-row">
+                    <p class="hero-text-body">
+                        "Desenterrando los delicados tesoros del suelo español, donde la tradición se encuentra con el
+                        plato en una
+                        sinfonía de notas terrosas."
+                    </p>
+                    <a class="hero-scroll-btn" href="#recetas">
+                        Desplázate para Explorar <span class="material-icon">south</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ==========================================================================
+            JOURNAL SECTION (#recetas)
+            ==========================================================================
+            A horizontal scrolling list of recipe cards.
+        -->
+        <section class="section-journal" id="recetas">
+            <div class="journal-header">
+                <div class="journal-header-content">
+                    <span class="journal-text-overline">Descubrimientos Gourmet</span>
+                    <h2 class="journal-text-heading">Recetas</h2>
+                </div>
+                <p class="journal-text-intro">
+                    Explora nuestra selección curada de recetas estacionales y el arte de la gastronomía fúngica.
+                </p>
+            </div>
+
+            <!-- Horizontal Scroll Container (Carousel) -->
+            <div class="journal-carousel util-snap-x util-no-scrollbar">
+
+                <!-- Card 1 -->
+                <div class="journal-card-item">
+                    <div class="journal-card-inner">
+                        <img alt="Creamy mushrooms" class="journal-card-img"
+                            src="/Generated Image January 13, 2026 - 5_13PM.png" />
+                        <div class="journal-card-overlay"></div>
+                        <div class="journal-card-content">
+                            <span class="journal-tag-badge">Selección Rústica</span>
+                            <h3 class="journal-card-title">Velouté de Champiñones</h3>
+                            <button class="journal-action-link">
+                                Leer Receta <span class="material-icon">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="journal-card-item">
+                    <div class="journal-card-inner">
+                        <img alt="Garlic mushrooms" class="journal-card-img"
+                            src="/Generated Image January 13, 2026 - 5_15PM.png" />
+                        <div class="journal-card-overlay"></div>
+                        <div class="journal-card-content">
+                            <span class="journal-tag-badge">Tapas Clásicas</span>
+                            <h3 class="journal-card-title">Tradición Al Ajillo</h3>
+                            <button class="journal-action-link">
+                                Leer Receta <span class="material-icon">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="journal-card-item">
+                    <div class="journal-card-inner">
+                        <img alt="Mushroom risotto" class="journal-card-img"
+                            src="/Generated Image January 13, 2026 - 5_21PM.png" />
+                        <div class="journal-card-overlay"></div>
+                        <div class="journal-card-content">
+                            <span class="journal-tag-badge">Especial del Chef</span>
+                            <h3 class="journal-card-title">Risotto de Otoño</h3>
+                            <button class="journal-action-link">
+                                Leer Receta <span class="material-icon">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 
+            ==========================================================================
+            PRODUCT SECTION (#producto)
+            ==========================================================================
+            Detailed view of a single product with image and features.
+        -->
+        <section class="section-product" id="producto">
+            <div class="container">
+                <div class="product-layout-grid">
+
+                    <!-- Product Image Column -->
+                    <div class="product-visuals-col">
+                        <div class="product-img-frame">
+                            <img alt="White mushrooms close up" class="product-img"
+                                src="/Generated Image January 13, 2026 - 5_31PM.png" />
+                        </div>
+                        <div class="product-glow-effect"></div>
+                    </div>
+
+                    <!-- Product Info Column -->
+                    <div class="product-info-col">
+                        <span class="product-text-overline">Enfoque en el Origen</span>
+                        <h2 class="product-text-heading">El Champiñón Blanco</h2>
+                        <p class="product-text-body">
+                            Una maravilla minimalista del reino fúngico. Nuestros champiñones blancos se cosechan en el
+                            punto máximo de su textura firme, asegurando un perfil limpio y rico en umami.
+                        </p>
+
+                        <div class="product-features-list">
+                            <div class="product-feature-item">
+                                <span class="material-icon feature-icon">eco</span>
+                                <div>
+                                    <h4 class="feature-text-title">Cultivo Sostenible</h4>
+                                    <p class="feature-text-desc">Sustratos sin químicos y métodos de cosecha circular.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="product-feature-item">
+                                <span class="material-icon feature-icon">location_on</span>
+                                <div>
+                                    <h4 class="feature-text-title">Kilómetro Cero</h4>
+                                    <p class="feature-text-desc">Cultivado en el corazón de nuestra comunidad, entregado
+                                        fresco
+                                        diariamente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ==========================================================================
+            HISTORY SECTION (#historia)
+            ==========================================================================
+            Brand story and heritage.
+        -->
+        <section class="section-history" id="historia">
+            <div class="history-layout-grid">
+
+                <!-- Visuals -->
+                <div class="history-visual-col">
+                    <img alt="Family in the fields" class="history-img-bg"
+                        src="/Generated Image January 13, 2026 - 6_00PM.png" />
+                    <!-- No overlay needed here if image has filters directly -->
+                    <div class="util-absolute util-inset-cover" style="background-color: rgba(0,0,0,0.1)"></div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="history-content-col">
+                    <div class="history-deco-year">
+                        <span class="history-year-text">24</span>
+                    </div>
+
+                    <span class="history-text-overline">Legado y Est. 2024</span>
+                    <h2 class="history-text-heading">Nuestra Herencia</h2>
+
+                    <div class="history-text-body">
+                        <p class="history-text-intro">"El campo no es solo nuestro trabajo; es nuestra forma de vida."
+                        </p>
+                        <p class="prose-paragraph">
+                            En 2024, dimos un salto de fe. No fue solo una decisión comercial; fue un compromiso de
+                            quedarnos, crecer y honrar la tierra que nos vio nacer. Elegimos ver el potencial en nuestro
+                            pueblo, nutrir la tierra y construir un futuro justo donde están nuestras raíces.
+                        </p>
+                        <p class="prose-paragraph">
+                            Cada cosecha es un reflejo de ese pacto. Una promesa de que los productos gourmet de alta
+                            calidad pueden
+                            prosperar en los rincones tranquilos de nuestro campo.
+                        </p>
+                    </div>
+
+                    <div class="history-stats-row">
+                        <div class="stat-item">
+                            <div class="stat-item-number">0%</div>
+                            <div class="stat-item-label">Químicos Usados</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item-number">100%</div>
+                            <div class="stat-item-label">Propiedad Familiar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ==========================================================================
+            FOOTER SECTION (#contacto)
+            ==========================================================================
+            Site directory and contact.
+        -->
+        <footer class="section-footer" id="contacto">
+            <div class="footer-main-grid">
+
+                <!-- Brand Column -->
+                <div class="footer-col-brand">
+                    <h3 class="footer-logo-text">Champamp</h3>
+                    <p class="footer-quote">
+                        Únete a nuestra mesa. Experimenta el susurro silencioso de la tierra en cada bocado.
+                    </p>
+                </div>
+
+                <!-- Navigation Column -->
+                <div class="footer-col-nav">
+                    <h4 class="footer-heading">Directorio</h4>
+                    <ul class="footer-link-list">
+                        <li><a class="footer-link-item" href="#inicio">Inicio</a></li>
+                        <li><a class="footer-link-item" href="#recetas">Recetas</a></li>
+                        <li><a class="footer-link-item" href="#producto">Nuestra Cosecha</a></li>
+                        <li><a class="footer-link-item" href="#historia">Historia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-col-contact">
+                    <h4 class="footer-heading">Conexión</h4>
+                    <ul class="footer-link-list">
+                        <li>
+                            <a class="footer-contact-item" href="mailto:hola@champamp.com">
+                                Envíanos un Email <span class="footer-contact-line"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer-contact-item" href="#">
+                                Instagram <span class="footer-contact-line"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer-contact-item" href="#">
+                                WhatsApp <span class="footer-contact-line"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-sub">
+                <p>© 2024 — Creado para el epicúreo moderno.</p>
+                <div class="footer-legal-links">
+                    <a class="footer-legal-item" href="#">Política de Privacidad</a>
+                    <a class="footer-legal-item" href="#">Términos de Servicio</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+</body>
+
+</html>

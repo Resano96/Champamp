@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <style>
+      .text { 
+        fill: #ffffff; 
+        font-family: 'Playfair Display', 'Didot', 'Bodoni MT', 'Times New Roman', serif; 
+        font-size: 38px; 
+        font-weight: 700; 
+        font-style: italic;
+      }
+      .icon { 
+        fill: #E09E83; 
+      }
+    </style>
+  </defs>
+  
+  <g transform="translate(0, 10)">
+     <!-- Stem -->
+     <path class="icon" d="M18 18 L18 32 Q 18 38, 25 38 Q 32 38, 32 32 L32 18 Z" />
+     <!-- Cap -->
+     <path class="icon" d="M8 20 Q 25 4, 42 20 Z" />
+  </g>
+
+  <text x="50" y="40" class="text">Champamp</text>
+</svg>
