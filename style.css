@@ -139,12 +139,16 @@ ul {
    The top navigation bar that floats above the hero section.
 */
 .main-navigation {
-    position: absolute;
+    position: fixed;
+    /* User requested fixed header */
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 50;
-    /* Ensures nav stays on top of hero image */
+    z-index: 1000;
+    /* Ensure it's above everything */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    /* Gradient for visibility */
+    transition: background-color 0.3s ease;
     padding: 2.5rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -160,9 +164,25 @@ ul {
 }
 
 .nav-logo-image {
-    height: 2.5rem;
+    height: 4.5rem;
+    /* Increased from 2.5rem for mobile */
     width: auto;
     /* filter: brightness(0) invert(1); - Removed to allow SVG colors */
+    transition: height 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .nav-logo-image {
+        height: 3rem;
+        /* Smaller on desktop to be subtle, or keep consistent */
+    }
+}
+
+/* Ensure brand doesn't shrink and stays above menu */
+.nav-brand-container {
+    flex-shrink: 0;
+    z-index: 60;
+    position: relative;
 }
 
 /* Desktop Menu Links */
@@ -208,9 +228,7 @@ ul {
     transition: color 0.3s ease;
 }
 
-.material-icon {
-    display: none;
-}
+/* .material-icon display:none removed to fix missing icons */
 
 .nav-link-item:hover {
     color: var(--color-primary);
@@ -221,7 +239,10 @@ ul {
     display: block;
     color: var(--color-white);
     font-size: 1.875rem;
+    z-index: 60;
+    position: relative;
 }
+
 
 @media (min-width: 768px) {
     .nav-toggle-mobile {
@@ -292,7 +313,8 @@ ul {
 
 .hero-text-heading {
     font-family: var(--font-display);
-    font-size: 6rem;
+    font-size: 13vw;
+    /* Fluid size for mobile */
     line-height: 0.85;
     color: var(--color-white);
     font-weight: 900;
@@ -424,12 +446,14 @@ ul {
     display: flex;
     flex-direction: column;
     /* Mobile first: stack */
-    gap: 1rem;
+    gap: 2rem;
     padding: 0 2rem;
     padding-bottom: 5rem;
     width: 100%;
-    min-height: 80vh;
-    /* Give it substantial height */
+    height: auto;
+    /* Allow natural growth based on content */
+    min-height: auto;
+    /* Remove viewport constraint on mobile */
 }
 
 @media (min-width: 768px) {
@@ -439,6 +463,8 @@ ul {
         padding: 0 5rem;
         padding-bottom: 5rem;
         gap: 1rem;
+        min-height: 80vh;
+        /* Restore for desktop */
     }
 }
 
@@ -456,15 +482,22 @@ ul {
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     border-radius: 12px;
-    min-height: 100px;
-    /* Mobile minimum */
+    height: 400px;
+    /* Fixed height for mobile visibility */
+    min-height: 250px;
     cursor: pointer;
+    background-color: var(--color-background-dark);
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+    /* Prevent shrinking */
 }
 
 .journal-card-item.is-expanded {
     flex: 7;
     /* Mobile: grow tall vertically */
     cursor: default;
+    height: auto;
+    min-height: 400px;
 }
 
 @media (min-width: 768px) {
@@ -992,6 +1025,8 @@ ol.recipe-list-items li::before {
     background-color: var(--color-background-dark);
     color: var(--color-white);
     padding: 8rem 2rem;
+    overflow: hidden;
+    /* Prevent horizontal scroll from large text */
 }
 
 @media (min-width: 768px) {
@@ -1026,7 +1061,8 @@ ol.recipe-list-items li::before {
 
 .footer-logo-text {
     font-family: var(--font-display);
-    font-size: 6rem;
+    font-size: 15vw;
+    /* Fluid font size for mobile to prevent overflow */
     margin-bottom: 3rem;
     line-height: 1;
     font-style: italic;
@@ -1134,4 +1170,13 @@ ol.recipe-list-items li::before {
         flex-direction: row;
         margin-top: 0;
     }
+}
+
+/* Additional fixes for footer alignment */
+.footer-legal-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Safety for very small screens */
 }
