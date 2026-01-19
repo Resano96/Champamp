@@ -127,7 +127,7 @@ ul {
     font-style: normal;
     font-size: 24px;
     line-height: 1;
-    display: inline-block;
+    display: none;
     white-space: nowrap;
     direction: ltr;
 }
@@ -156,12 +156,7 @@ ul {
 }
 
 
-/* Responsive: Increase padding on larger screens */
-@media (min-width: 768px) {
-    .main-navigation {
-        padding: 2.5rem 4rem;
-    }
-}
+
 
 .nav-logo-image {
     height: 4.5rem;
@@ -171,12 +166,7 @@ ul {
     transition: height 0.3s ease;
 }
 
-@media (min-width: 768px) {
-    .nav-logo-image {
-        height: 3rem;
-        /* Smaller on desktop to be subtle, or keep consistent */
-    }
-}
+
 
 /* Ensure brand doesn't shrink and stays above menu */
 .nav-brand-container {
@@ -193,17 +183,7 @@ ul {
     align-items: center;
 }
 
-@media (min-width: 768px) {
-    .nav-menu-desktop {
-        display: flex;
-        /* Visible on desktop */
-        position: static;
-        flex-direction: row;
-        width: auto;
-        padding: 0;
-        background-color: transparent;
-    }
-}
+
 
 /* Active State for Mobile Menu (toggled via JS) */
 .nav-menu-desktop.is-active-mobile {
@@ -244,13 +224,7 @@ ul {
 }
 
 
-@media (min-width: 768px) {
-    .nav-toggle-mobile {
-        display: none;
-    }
 
-    /* Hide toggle on desktop */
-}
 
 /* 
    ==========================================================================
@@ -270,11 +244,7 @@ ul {
     overflow: hidden;
 }
 
-@media (min-width: 768px) {
-    .section-hero {
-        padding: 5rem;
-    }
-}
+
 
 /* Full screen background image styling */
 .hero-image-bg {
@@ -324,11 +294,7 @@ ul {
     margin-bottom: 2.5rem;
 }
 
-@media (min-width: 768px) {
-    .hero-text-heading {
-        font-size: 14rem;
-    }
-}
+
 
 .hero-actions-row {
     display: flex;
@@ -338,11 +304,7 @@ ul {
     align-items: flex-end;
 }
 
-@media (min-width: 768px) {
-    .hero-actions-row {
-        flex-direction: row;
-    }
-}
+
 
 .hero-text-body {
     color: var(--color-white-90);
@@ -353,11 +315,7 @@ ul {
     line-height: 1.625;
 }
 
-@media (min-width: 768px) {
-    .hero-text-body {
-        font-size: 1.875rem;
-    }
-}
+
 
 .hero-scroll-btn {
     display: flex;
@@ -402,12 +360,7 @@ ul {
     gap: 2rem;
 }
 
-@media (min-width: 768px) {
-    .journal-header {
-        padding: 0 5rem;
-        flex-direction: row;
-    }
-}
+
 
 .journal-text-overline {
     color: var(--color-primary);
@@ -426,11 +379,7 @@ ul {
     line-height: 1;
 }
 
-@media (min-width: 768px) {
-    .journal-text-heading {
-        font-size: 8rem;
-    }
-}
+
 
 .journal-text-intro {
     font-family: var(--font-serif);
@@ -442,76 +391,56 @@ ul {
 }
 
 /* Carousel/Accordion Container */
+/* Mobile: Horizontal Scroll Snap */
 .journal-carousel {
     display: flex;
-    flex-direction: column;
-    /* Mobile first: stack */
-    gap: 2rem;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
     padding: 0 2rem;
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
     width: 100%;
     height: auto;
-    /* Allow natural growth based on content */
-    min-height: auto;
-    /* Remove viewport constraint on mobile */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-@media (min-width: 768px) {
-    .journal-carousel {
-        flex-direction: row;
-        /* Desktop: horizontal */
-        padding: 0 5rem;
-        padding-bottom: 5rem;
-        gap: 1rem;
-        min-height: 80vh;
-        /* Restore for desktop */
-    }
+.journal-carousel::-webkit-scrollbar {
+    display: none;
 }
 
-@media (min-width: 768px) {
-    .journal-carousel {
-        padding: 0 5rem;
-        padding-bottom: 5rem;
-    }
-}
+
+
+
 
 /* Individual Card (Accordion Item) */
+/* Individual Card */
 .journal-card-item {
-    flex: 1;
+    flex: 0 0 85vw;
+    /* Fixed width for mobile carousel */
+    width: 85vw;
+    height: 60vh;
+    /* Taller on mobile for better visibility */
+    scroll-snap-align: center;
     position: relative;
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     border-radius: 12px;
-    height: 400px;
-    /* Fixed height for mobile visibility */
-    min-height: 250px;
-    cursor: pointer;
     background-color: var(--color-background-dark);
-    margin-bottom: 2rem;
-    flex-shrink: 0;
-    /* Prevent shrinking */
+    margin-bottom: 0;
+    cursor: pointer;
 }
 
 .journal-card-item.is-expanded {
-    flex: 7;
-    /* Mobile: grow tall vertically */
+    flex: 0 0 92vw;
+    width: 92vw;
+    height: 70vh;
     cursor: default;
-    height: auto;
-    min-height: 400px;
 }
 
-@media (min-width: 768px) {
-    .journal-card-item {
-        height: 600px;
-        /* Fixed height for desktop accordion */
-        min-height: auto;
-    }
 
-    /* Desktop: grow less wide so others remain visible */
-    .journal-card-item.is-expanded {
-        flex: 2.5;
-    }
-}
 
 .journal-card-inner {
     position: relative;
@@ -613,11 +542,7 @@ ul {
     grid-template-columns: 1fr;
 }
 
-@media(min-width: 768px) {
-    .recipe-lists-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
+
 
 .recipe-list-title {
     font-family: var(--font-display);
@@ -676,11 +601,7 @@ ol.recipe-list-items li::before {
     line-height: 1.25;
 }
 
-@media (min-width: 768px) {
-    .journal-card-title {
-        font-size: 3.75rem;
-    }
-}
+
 
 .journal-action-link {
     display: flex;
@@ -719,23 +640,14 @@ ol.recipe-list-items li::before {
     align-items: center;
 }
 
-@media (min-width: 1024px) {
-    .product-layout-grid {
-        grid-template-columns: repeat(12, 1fr);
-        gap: 6rem;
-    }
-}
+
 
 .product-visuals-col {
     position: relative;
     grid-column: 1 / -1;
 }
 
-@media (min-width: 1024px) {
-    .product-visuals-col {
-        grid-column: span 8;
-    }
-}
+
 
 .product-img-frame {
     position: relative;
@@ -780,20 +692,9 @@ ol.recipe-list-items li::before {
     grid-column: 1 / -1;
 }
 
-@media (min-width: 768px) {
-    .product-info-col {
-        padding: 4rem;
-    }
-}
 
-@media (min-width: 1024px) {
 
-    /* Overlap the content on desktop */
-    .product-info-col {
-        grid-column: span 4;
-        margin-left: -3rem;
-    }
-}
+
 
 .product-text-overline {
     color: var(--color-primary);
@@ -814,11 +715,7 @@ ol.recipe-list-items li::before {
     line-height: 1.1;
 }
 
-@media (min-width: 768px) {
-    .product-text-heading {
-        font-size: 4.5rem;
-    }
-}
+
 
 .product-text-body {
     font-family: var(--font-serif);
@@ -877,11 +774,7 @@ ol.recipe-list-items li::before {
     grid-template-columns: 1fr;
 }
 
-@media (min-width: 1024px) {
-    .history-layout-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
+
 
 .history-visual-col {
     position: relative;
@@ -889,11 +782,7 @@ ol.recipe-list-items li::before {
     overflow: hidden;
 }
 
-@media (min-width: 1024px) {
-    .history-visual-col {
-        height: auto;
-    }
-}
+
 
 .history-img-bg {
     position: absolute;
@@ -922,11 +811,7 @@ ol.recipe-list-items li::before {
     position: relative;
 }
 
-@media (min-width: 768px) {
-    .history-content-col {
-        padding: 6rem;
-    }
-}
+
 
 /* Decorative background number */
 .history-deco-year {
@@ -962,11 +847,7 @@ ol.recipe-list-items li::before {
     color: var(--color-clay-text);
 }
 
-@media (min-width: 768px) {
-    .history-text-heading {
-        font-size: 6rem;
-    }
-}
+
 
 .history-text-body {
     font-weight: 300;
@@ -1000,11 +881,7 @@ ol.recipe-list-items li::before {
     color: var(--color-primary);
 }
 
-@media (min-width: 768px) {
-    .stat-item-number {
-        font-size: 3rem;
-    }
-}
+
 
 .stat-item-label {
     font-size: 10px;
@@ -1029,11 +906,7 @@ ol.recipe-list-items li::before {
     /* Prevent horizontal scroll from large text */
 }
 
-@media (min-width: 768px) {
-    .section-footer {
-        padding: 8rem 5rem;
-    }
-}
+
 
 .footer-main-grid {
     display: grid;
@@ -1043,21 +916,13 @@ ol.recipe-list-items li::before {
     padding-bottom: 8rem;
 }
 
-@media (min-width: 768px) {
-    .footer-main-grid {
-        grid-template-columns: repeat(12, 1fr);
-    }
-}
+
 
 .footer-col-brand {
     grid-column: span 1;
 }
 
-@media (min-width: 768px) {
-    .footer-col-brand {
-        grid-column: span 7;
-    }
-}
+
 
 .footer-logo-text {
     font-family: var(--font-display);
@@ -1070,11 +935,7 @@ ol.recipe-list-items li::before {
     user-select: none;
 }
 
-@media (min-width: 768px) {
-    .footer-logo-text {
-        font-size: 10rem;
-    }
-}
+
 
 .footer-quote {
     font-size: 1.875rem;
@@ -1089,21 +950,13 @@ ol.recipe-list-items li::before {
     grid-column: span 1;
 }
 
-@media (min-width: 768px) {
-    .footer-col-nav {
-        grid-column: span 2;
-    }
-}
+
 
 .footer-col-contact {
     grid-column: span 1;
 }
 
-@media (min-width: 768px) {
-    .footer-col-contact {
-        grid-column: span 3;
-    }
-}
+
 
 .footer-heading {
     font-size: 10px;
@@ -1165,12 +1018,7 @@ ol.recipe-list-items li::before {
     gap: 2rem;
 }
 
-@media (min-width: 768px) {
-    .footer-sub {
-        flex-direction: row;
-        margin-top: 0;
-    }
-}
+
 
 /* Additional fixes for footer alignment */
 .footer-legal-links {
@@ -1179,4 +1027,179 @@ ol.recipe-list-items li::before {
     justify-content: center;
     flex-wrap: wrap;
     /* Safety for very small screens */
+}
+
+/* 
+   ==========================================================================
+   10. RESPONSIVE QUERIES
+   ==========================================================================
+   Consolidated media queries for tablet and desktop views.
+   Mobile First: These rules override the base styles above.
+*/
+
+/* --- Tablet / Small Desktop (min-width: 768px) --- */
+@media (min-width: 768px) {
+
+    /* Navigation */
+    .main-navigation {
+        padding: 2.5rem 4rem;
+    }
+
+    .nav-logo-image {
+        height: 3rem;
+    }
+
+    .nav-menu-desktop {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .nav-toggle-mobile {
+        display: none;
+    }
+
+    /* Hero Section */
+    .section-hero {
+        padding: 5rem;
+    }
+
+    .hero-text-heading {
+        font-size: 14rem;
+    }
+
+    .hero-actions-row {
+        flex-direction: row;
+    }
+
+    .hero-text-body {
+        font-size: 1.875rem;
+    }
+
+    /* Journal/Recipes Section */
+    .journal-header {
+        padding: 0 5rem;
+        flex-direction: row;
+    }
+
+    .journal-text-heading {
+        font-size: 8rem;
+    }
+
+    .journal-carousel {
+        flex-direction: row;
+        padding: 0 5rem;
+        padding-bottom: 5rem;
+        gap: 1rem;
+        min-height: 80vh;
+        /* Reset mobile scroll */
+        overflow-x: visible;
+        scroll-snap-type: none;
+        flex-wrap: nowrap;
+    }
+
+    .journal-card-item {
+        flex: 1;
+        /* Restore accordion flex */
+        width: auto;
+        /* Reset fixed width */
+        height: 600px;
+        min-height: auto;
+        scroll-snap-align: none;
+    }
+
+    .journal-card-item.is-expanded {
+        flex: 2.5;
+    }
+
+    .journal-card-title {
+        font-size: 3.75rem;
+    }
+
+    .recipe-lists-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Product Section */
+    .product-info-col {
+        padding: 4rem;
+    }
+
+    .product-text-heading {
+        font-size: 4.5rem;
+    }
+
+    /* History Section */
+    .history-content-col {
+        padding: 6rem;
+    }
+
+    .history-text-heading {
+        font-size: 6rem;
+    }
+
+    .stat-item-number {
+        font-size: 3rem;
+    }
+
+    /* Footer Section */
+    .section-footer {
+        padding: 8rem 5rem;
+    }
+
+    .footer-main-grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .footer-col-brand {
+        grid-column: span 7;
+    }
+
+    .footer-logo-text {
+        font-size: 10rem;
+    }
+
+    .footer-col-nav {
+        grid-column: span 2;
+    }
+
+    .footer-col-contact {
+        grid-column: span 3;
+    }
+
+    .footer-sub {
+        flex-direction: row;
+        margin-top: 0;
+    }
+}
+
+/* --- Large Desktop (min-width: 1024px) --- */
+@media (min-width: 1024px) {
+
+    /* Product Section */
+    .product-layout-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 6rem;
+    }
+
+    .product-visuals-col {
+        grid-column: span 8;
+    }
+
+    .product-info-col {
+        grid-column: span 4;
+        margin-left: -3rem;
+    }
+
+    /* History Section */
+    .history-layout-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .history-visual-col {
+        height: auto;
+    }
 }
